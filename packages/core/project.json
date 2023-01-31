@@ -20,7 +20,7 @@
         "project": "packages/core/package.json",
         "entryFile": "packages/core/src/index.ts",
         "external": ["@emotion/react/jsx-runtime"],
-        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "rollupConfig": "rollup.config.js",
         "compiler": "babel",
         "assets": [
           {
@@ -42,33 +42,6 @@
         "ci": {
           "ci": true,
           "codeCoverage": true
-        }
-      }
-    },
-    "storybook": {
-      "executor": "@nrwl/storybook:storybook",
-      "options": {
-        "uiFramework": "@storybook/react",
-        "port": 4400,
-        "configDir": "packages/core/.storybook"
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
-    },
-    "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputDir}"],
-      "options": {
-        "uiFramework": "@storybook/react",
-        "outputDir": "dist/storybook/core",
-        "configDir": "packages/core/.storybook"
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
         }
       }
     }

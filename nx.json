@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "dls-test",
+  "npmScope": "dls-monorepo-boilerplate",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",

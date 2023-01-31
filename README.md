@@ -8,10 +8,6 @@
 
 Run `nx graph` to see a diagram of the dependencies of the projects.
 
-## Remote caching
+### Generate React Component
 
-Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and make CI faster.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+Run `nx g @nrwl/react:component my-component --directory=/atoms/{{category}}` to generate a new component with the right structure.
