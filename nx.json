@@ -26,6 +26,9 @@
     },
     "e2e": {
       "inputs": ["default", "^production"]
+    },
+    "publish": {
+      "dependsOn": ["build", "release"]
     }
   },
   "namedInputs": {
