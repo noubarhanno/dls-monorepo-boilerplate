@@ -50,11 +50,11 @@
       "options": {
         "commands": [
           {
-            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=atoms/{args.group} --name={args.name}",
+            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=lib/atoms/{args.group} --name={args.name}",
             "forwardAllArgs": true
           },
           {
-            "command": "nx g @nrwl/react:component-story --project=core --componentPath=atoms/{args.group}/{args.name}/{args.name}.tsx",
+            "command": "nx g @nrwl/react:component-story --project=core --componentPath=lib/atoms/{args.group}/{args.name}/{args.name}.tsx",
             "forwardAllArgs": true
           }
         ],
@@ -67,11 +67,11 @@
       "options": {
         "commands": [
           {
-            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=molecules/{args.group} --name={args.name}",
+            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=lib/molecules/{args.group} --name={args.name}",
             "forwardAllArgs": true
           },
           {
-            "command": "nx g @nrwl/react:component-story --project=core --componentPath=molecules/{args.group}/{args.name}/{args.name}.tsx",
+            "command": "nx g @nrwl/react:component-story --project=core --componentPath=lib/molecules/{args.group}/{args.name}/{args.name}.tsx",
             "forwardAllArgs": true
           }
         ],

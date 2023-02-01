@@ -1,1 +1,1 @@
-export * from './atoms/inputs/button/button';
+export * from './lib/atoms/inputs/button/button';
