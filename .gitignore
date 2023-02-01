@@ -8,6 +8,9 @@ tmp
 # dependencies
 node_modules
 
+# storybook
+build-storybook.log
+
 # IDEs and editors
 /.idea
 .project

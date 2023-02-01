@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 /* eslint-disable-next-line */
 export interface ButtonProps {}
 
-const StyledButton = styled.div`
+const StyledButton = styled.button`
   color: pink;
+  padding: 8px;
 `;
 
 export function Button(props: ButtonProps) {

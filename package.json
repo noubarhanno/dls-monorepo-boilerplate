@@ -2,7 +2,9 @@
   "name": "dls-monorepo-boilerplate",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build-storybook": "build-storybook"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "7.12.13",
@@ -48,6 +50,7 @@
     "@typescript-eslint/parser": "^5.36.1",
     "babel-jest": "28.1.1",
     "babel-loader": "8.1.0",
+    "chromatic": "^6.15.0",
     "cypress": "^12.2.0",
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
@@ -78,5 +81,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tslib": "^2.3.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "dls-monorepo-boilerplate@0.0.0"
 }
