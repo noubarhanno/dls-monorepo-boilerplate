@@ -1,4 +1,20 @@
 {
   "name": "@noubarhanno/core",
-  "version": "0.0.1"
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noubarhanno/dls-boilerplate-template.git",
+    "directory": "packages/core"
+  },
+  "author": "Noubar Hanno",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }
