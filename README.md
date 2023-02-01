@@ -10,4 +10,10 @@ Run `nx graph` to see a diagram of the dependencies of the projects.
 
 ### Generate React Component
 
-Run `nx g @nrwl/react:component my-component --directory=/atoms/{{category}}` to generate a new component with the right structure.
+**_Atom_**
+
+Run `npx nx run core:generate-atom --args="--name=button --group=inputs"` to generate a new atom component categorized inside `atoms` folder and under `inputs` group.
+
+**_Molecule_**
+
+Run `npx nx run core:generate-molecule --args="--name=buttonGroup --group=inputs"` to generate a new molecule component categorized inside `molecules` folder and under `inputs` group.

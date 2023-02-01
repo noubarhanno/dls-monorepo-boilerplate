@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dls-monorepo-boilerplate/storybook": [
-        "packages/storybook/src/index.ts"
-      ],
       "@noubarhanno/core": ["packages/core/src/index.ts"]
     }
   },

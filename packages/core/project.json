@@ -44,6 +44,67 @@
           "codeCoverage": true
         }
       }
+    },
+    "generate-atom": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=atoms/{args.group} --name={args.name}",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "nx g @nrwl/react:component-story --project=core --componentPath=atoms/{args.group}/{args.name}/{args.name}.tsx",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/core",
+        "parallel": false
+      }
+    },
+    "generate-molecule": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx g @nrwl/react:component --project=core --style=@emotion/styled --export --directory=molecules/{args.group} --name={args.name}",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "nx g @nrwl/react:component-story --project=core --componentPath=molecules/{args.group}/{args.name}/{args.name}.tsx",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/core",
+        "parallel": false
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4400,
+        "configDir": "packages/core/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "outputDir": "dist/storybook/core",
+        "configDir": "packages/core/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   }
 }
