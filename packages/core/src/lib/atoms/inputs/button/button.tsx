@@ -5,7 +5,7 @@ export interface ButtonProps {}
 
 const StyledButton = styled.button`
   color: pink;
-  padding: 8px;
+  padding: 4px;
 `;
 
 export function Button(props: ButtonProps) {
