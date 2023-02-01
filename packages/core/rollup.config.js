@@ -1,9 +1,11 @@
 const nrwlConfig = require('@nrwl/react/plugins/bundle-rollup');
+const packageJson = require('./package.json');
 const resolve = require('@rollup/plugin-node-resolve');
 const terser = require('@rollup/plugin-terser');
 const commonjs = require('@rollup/plugin-commonjs');
 const analyzer = require('rollup-plugin-analyzer');
 const peerDepsExternal = require('rollup-plugin-peer-deps-external');
+const replace = require('@rollup/plugin-replace');
 
 const limitBytes = 100000;
 
@@ -27,6 +29,11 @@ module.exports = (config) => {
       }),
       resolve(),
       peerDepsExternal(),
+      commonjs(),
+      replace({
+        preventAssignment: true,
+        'process.env.NODE_ENV': JSON.stringify('production'),
+      }),
       analyzer({
         onAnalysis,
         summaryOnly: true,

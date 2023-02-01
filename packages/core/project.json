@@ -20,7 +20,7 @@
         "project": "packages/core/package.json",
         "entryFile": "packages/core/src/index.ts",
         "external": ["@emotion/react/jsx-runtime"],
-        "rollupConfig": "rollup.config.js",
+        "rollupConfig": "packages/core/rollup.config.js",
         "compiler": "babel",
         "assets": [
           {

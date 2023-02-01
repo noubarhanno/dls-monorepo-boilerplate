@@ -1,7 +1,7 @@
 {
   "name": "@noubarhanno/core",
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "typings": "dist/index.d.ts",
