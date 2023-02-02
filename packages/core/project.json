@@ -19,6 +19,7 @@
         "tsConfig": "packages/core/tsconfig.lib.json",
         "project": "packages/core/package.json",
         "entryFile": "packages/core/src/index.ts",
+        "external": ["react", "react-dom", "@emotion/styled", "@emotion/react/jsx-runtime"],
         "rollupConfig": "packages/core/rollup.config.js",
         "compiler": "babel",
         "assets": [
@@ -109,7 +110,7 @@
       "executor": "nx:run-commands",
       "outputs": [],
       "options": {
-        "command": "npm publish --access restricted",
+        "command": "npm publish --access public",
         "cwd": "packages/core"
       }
     },

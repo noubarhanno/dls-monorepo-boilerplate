@@ -1,5 +1,4 @@
 const nrwlConfig = require('@nrwl/react/plugins/bundle-rollup');
-const packageJson = require('./package.json');
 const resolve = require('@rollup/plugin-node-resolve');
 const terser = require('@rollup/plugin-terser');
 const commonjs = require('@rollup/plugin-commonjs');
