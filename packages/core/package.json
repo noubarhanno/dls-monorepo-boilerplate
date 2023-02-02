@@ -1,10 +1,10 @@
 {
   "name": "@noubarhanno/core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "commonjs",
   "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
+  "module": "dist/index.js",
+  "typings": "dist/src/index.d.ts",
   "files": [
     "dist"
   ],
