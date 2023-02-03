@@ -7,11 +7,9 @@ name: 'Chromatic Publish'
 on:
   push:
     # 👇 Run the workflow on push to all branches
-    branches:
-      - '**'
   pull_request:
     branches:
-      - main
+      - '**'
 
 # List of jobs
 jobs:
