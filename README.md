@@ -1,4 +1,4 @@
-# DlsTest
+# DLS Boilerplate - React
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -16,4 +16,4 @@ Run `npx nx run core:generate-atom --args="--name=button --group=inputs"` to gen
 
 **_Molecule_**
 
-Run `npx nx run core:generate-molecule --args="--name=buttonGroup --group=inputs"` to generate a new molecule component categorized inside `molecules` folder and under `inputs` group.
+Run `npx nx run core:generate-molecule --args="--name={{buttonGroup}} --group=inputs"` to generate a new molecule component categorized inside `molecules` folder and under `inputs` group.
