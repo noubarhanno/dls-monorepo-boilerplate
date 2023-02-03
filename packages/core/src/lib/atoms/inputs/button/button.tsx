@@ -6,8 +6,9 @@ import styled from '@emotion/styled';
 export interface ButtonProps {}
 
 const StyledButton = styled.button`
-  color: pink;
+  color: red;
   padding: 4px;
+  border: 1px solid black;
 `;
 
 export function Button(props: ButtonProps) {
