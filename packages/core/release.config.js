@@ -2,10 +2,10 @@ const name = 'core';
 const srcRoot = `packages/${name}`;
 
 module.exports = {
-  extends: `release.config.base.js`,
+  extends: 'release.config.base.js',
   pkgRoot: `${srcRoot}`,
   npmPublish: false,
-  tagFormat: name + '-v${version}',
+  tagFormat: `${name}-${'v${version}'}`,
   commitPaths: [`${srcRoot}/*`],
   branches: ['main'],
   plugins: [

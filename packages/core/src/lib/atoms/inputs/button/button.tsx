@@ -1,3 +1,5 @@
+// specify in tsconfig.json: "jsx": "react-jsx" so import React is not needed
+import React from 'react';
 import styled from '@emotion/styled';
 
 /* eslint-disable-next-line */
