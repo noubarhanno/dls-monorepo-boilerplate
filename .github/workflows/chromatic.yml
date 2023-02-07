@@ -30,7 +30,7 @@ jobs:
         # run only if there is affected changes
       - name: Publish to Chromatic
         # if the event is a pull request or push to main
-        if: github.event_name == 'pull_request' || github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'pull_request' || github.event_name == 'push' && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta'
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
