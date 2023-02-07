@@ -5,6 +5,11 @@ name: 'Chromatic Publish'
 
 # Event for the workflow
 on:
+  # 👇 Run the workflow on push events to the master branch
+  push:
+    branches:
+      - master
+      - beta
   # 👇 Run the workflow on all pull request events
   pull_request:
     branches:
