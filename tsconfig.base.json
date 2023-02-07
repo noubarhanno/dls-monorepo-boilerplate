@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@noubarhanno/core": ["packages/core/src/index.ts"]
+      "@noubarhanno/core": ["packages/core/src/index.ts"],
+      "@noubarhanno/organisms": ["packages/organisms/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
