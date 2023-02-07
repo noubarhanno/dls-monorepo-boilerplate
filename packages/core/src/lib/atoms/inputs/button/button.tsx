@@ -7,7 +7,7 @@ export interface ButtonProps {}
 const StyledButton = styled.button`
   color: red;
   padding: 6px;
-  border: 1px solid black;
+  border: 2px solid green;
 `;
 
 export function Button() {
