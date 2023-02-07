@@ -2,7 +2,9 @@
 import styled from '@emotion/styled';
 
 /* eslint-disable-next-line */
-export interface ButtonProps {}
+export interface ButtonProps {
+  onClick: () => void;
+}
 
 const StyledButton = styled.button`
   color: red;
@@ -10,9 +12,9 @@ const StyledButton = styled.button`
   border: 2px solid green;
 `;
 
-export function Button() {
+export function Button({ onClick }: ButtonProps): JSX.Element {
   return (
-    <StyledButton>
+    <StyledButton onClick={onClick}>
       <h1>Welcome to Button!</h1>
     </StyledButton>
   );
