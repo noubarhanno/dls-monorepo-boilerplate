@@ -1,0 +1,110 @@
+{
+  "name": "organisms",
+  "sourceRoot": "packages/organisms/src",
+  "projectType": "library",
+  "tags": [],
+  "implicitDependencies": ["core"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/organisms/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/organisms",
+        "tsConfig": "packages/organisms/tsconfig.lib.json",
+        "project": "packages/organisms/package.json",
+        "entryFile": "packages/organisms/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "packages/organisms/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/organisms/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "generate-component": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx g @nrwl/react:component --project=organisms --style=@emotion/styled --export --directory=lib/{args.group} --name={args.name}",
+            "forwardAllArgs": true
+          },
+          {
+            "command": "nx g @nrwl/react:component-story --project=organisms --componentPath=lib/{args.group}/{args.name}/{args.name}.tsx",
+            "forwardAllArgs": true
+          }
+        ],
+        "cwd": "packages/organisms",
+        "parallel": false
+      }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/react",
+        "port": 4400,
+        "configDir": "packages/organisms/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "uiFramework": "@storybook/react",
+        "outputDir": "dist/storybook/organisms",
+        "configDir": "packages/organisms/.storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "publish": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --access public",
+        "cwd": "packages/organisms"
+      }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/organisms/release.config.js --no-ci",
+        "parallel": false
+      }
+    }
+  }
+}

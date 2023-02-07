@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nrwl/nx"],
+  "plugins": ["@nrwl/nx", "eslint-plugin-no-inline-styles"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -17,6 +17,16 @@
         "plugin:react/jsx-runtime"
       ],
       "rules": {
+        // no inline comments
+        "no-inline-comments": "error",
+        "react/jsx-props-no-spreading": [
+          "error",
+          {
+            "html": "enforce",
+            "custom": "enforce",
+            "explicitSpread": "ignore"
+          }
+        ],
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
           {
@@ -32,9 +42,13 @@
         ]
       }
     },
+    // adding airbnb-typescript to ts files
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
+      "extends": ["plugin:@nrwl/nx/typescript", "airbnb-typescript"],
+      "parserOptions": {
+        "project": ["./tsconfig.*?.json"]
+      },
       "rules": {}
     },
     {
@@ -48,6 +62,27 @@
         "jest": true
       },
       "rules": {}
+    },
+    // allowing to use any in stories
+    {
+      "files": ["**/*.stories.tsx", "**/*.stories.ts"],
+      "extends": ["airbnb-typescript"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    // disable it due to the nature of nx workspace configuration
+    {
+      "files": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": ["*.tsx", "*.jsx"],
+      "rules": {
+        "no-inline-styles/no-inline-styles": "error"
+      }
     }
   ]
 }

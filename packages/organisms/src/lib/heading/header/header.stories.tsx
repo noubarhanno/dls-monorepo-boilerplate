@@ -7,7 +7,9 @@ const Story: ComponentMeta<typeof Header> = {
 };
 export default Story;
 
-const Template: ComponentStory<typeof Header> = (args: any) => <Header {...args} />;
+const Template: ComponentStory<typeof Header> = (args: any) => (
+  <Header {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
