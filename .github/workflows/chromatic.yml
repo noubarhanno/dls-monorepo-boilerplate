@@ -5,13 +5,10 @@ name: 'Chromatic Publish'
 
 # Event for the workflow
 on:
-  push:
-    # 👇 Run the workflow on push to all branches
-    branches:
-      - '**'
+  # 👇 Run the workflow on all pull request events
   pull_request:
     branches:
-      - main
+      - '**'
 
 # List of jobs
 jobs:
@@ -31,6 +28,7 @@ jobs:
         uses: chromaui/action@v1
         # Chromatic GitHub Action options
         with:
+          # 👇 Add comment to test that when no changes on the ui this trigger will not work
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           # 👇 Only run if there are changes to the components

@@ -7,7 +7,12 @@ module.exports = {
   npmPublish: false,
   tagFormat: `${name}-${'v${version}'}`,
   commitPaths: [`${srcRoot}/*`],
-  branches: ['main'],
+  branches: [
+    'master',
+    'next',
+    { name: 'beta', prerelease: true },
+    { name: 'alpha', prerelease: true },
+  ],
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
