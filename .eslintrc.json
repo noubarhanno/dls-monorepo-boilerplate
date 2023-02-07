@@ -5,6 +5,17 @@
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "excludedFiles": [
+        "*.config.*",
+        ".storybook/**/*",
+        "**/*.stories.tsx",
+        "**/*.stories.ts"
+      ],
+      "extends": [
+        "plugin:@nrwl/nx/typescript",
+        "airbnb",
+        "plugin:react/jsx-runtime"
+      ],
       "rules": {
         "@nrwl/nx/enforce-module-boundaries": [
           "error",
