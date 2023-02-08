@@ -209,6 +209,16 @@ This extension provides a UI to:
 
 ```
 
+## Git hooks
+
+---
+
+- **_commit-msg_** - Runs commit linting
+- **_pre-commit_** - Runs staged linting
+- **_pre-push_** - check the branch if procted or related to semantic release
+
+**_Note_** pre push is commented now , in order to prevent pushing to beta, alpha and main directly you can uncomment the content.
+
 ## Development Work flow (Recommended)
 
 ---
@@ -326,6 +336,8 @@ in order to let the workflow works, you need to add the chromatic project token 
 
 This code base is using github actions to run the CI. you can find the workflow file in the `.github/workflows` folder.
 
+**_Note_** : \* the workflow is commented , in order to run the workflow you need to uncomment the lines.The workflow file is configured to run on every pull request and on every push to `beta`, `alpha`, and `main` branches. so you can change the workflow file to run on your own needs.
+
 initially we have two workflows:
 
 - Test workflow
@@ -342,7 +354,7 @@ any one of the above workflows will fail, the pull request will be blocked from 
 
 This code base is using the [semantic-release-plus](https://semantic-release-plus.gitbook.io/semantic-release-plus/)
 
-semantic release will automatically release the package based on the commit messages. that's why it's important to follow the conventional commit message format. and it will create the changelog and bump the version based.
+semantic release will automatically release the package based on the commit messages. that's why it's important to follow the conventional commit message format. and it will create the changelog and bump the version for specific package.
 
 #### Merge to one of the releasing branches
 
@@ -356,7 +368,13 @@ semantic release will automatically release the package based on the commit mess
 npx nx run {{projectName}}:publish
 ```
 
-This will run build, test, lint, and publish the package to the npm registry.
+This will run build, test, lint, and release to
+
+- analyze the commit massages
+- bump the version
+- create the changelog
+
+then publish the package to the npm registry.
 
 **\*_Note_**: \* The `{{projectName}}` should be the name of the project you want to release. for example: `core` or `organisms`\*
 
