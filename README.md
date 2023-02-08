@@ -1,4 +1,4 @@
-# DLS Boilerplate
+# Atomic DLS Boilerplate
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -6,18 +6,365 @@
 
 ## Getting Started
 
+---
+
 This workspace designed to handle the kickoff of building new Design language system using React, Typescript, Storybook and emotion. and following [Atomic Design principles](https://bradfrost.com/blog/post/atomic-web-design/).
+
+clone the repo and run `npm install` to install all the dependencies. and prepare your git hooks
 
 ## Understand this workspace
 
+---
+
 Run `nx graph` to see a diagram of the dependencies of the projects.
 
-### Generate React Component
+## Content
 
-**_Atom_**
+---
 
-Run `npx nx run core:generate-atom --args="--name=button --group=inputs"` to generate a new atom component categorized inside `atoms` folder and under `inputs` group.
+This boilerplate monorepo contains initially the following projects:
 
-**_Molecule_**
+- **core**: The core project contains the main logic of the design system. It contains the atoms, molecules and it include one simple component as an example
 
-Run `npx nx run core:generate-molecule --args="--name={{buttonGroup}} --group=inputs"` to generate a new molecule component categorized inside `molecules` folder and under `inputs` group.
+- **organisms**: The organisms project contains the organisms components and it include one simple component as an example
+
+## Generators Guide
+
+---
+
+NX comes with a set of generators that can be used to generate new components, libraries, and applications. [Read more about packages](https://nx.dev/packages).
+
+but in order to follow the Atomic Design principles, we have created a set of generators that will help you to generate new components based on the specific pattern.
+
+To customize and add new generators, you can edit the `tools/generators` folder. or build a custom script side the `project.json` file. for each package. consuming the nx generators
+
+Here are the list of customized generators:
+
+### Generate React core Component
+
+- **_Atom_** : Run
+
+```bash
+npx nx run core:generate-atom --args="--name=button --group=inputs"
+```
+
+to generate a new atom component categorized inside `atoms` folder and under `inputs` group.
+
+- **_Molecule_** : Run
+
+```bash
+npx nx run core:generate-molecule --args="--name={{buttonGroup}} --group=inputs"
+```
+
+to generate a new molecule component categorized inside `molecules` folder and under `inputs` group.
+
+### Generate React Organism Component
+
+- Run
+
+```bash
+npx nx run organisms:generate-component --args="--name={{buttonGroup}} --group=inputs"
+```
+
+to generate a new organism component categorized inside `organisms` folder and under `inputs` group.
+
+## Available scripts
+
+---
+
+### <ins>Storybook</ins>
+
+- Run specific project
+
+```bash
+npx nx run {{projectName}}:storybook
+```
+
+to run storybook for specific project.
+
+- Run all storybooks
+
+```bash
+npx nx run-many --target=storybook --all
+```
+
+to run storybook for all projects.
+
+**_Note:_** \storybook is configured to run locally for each package and to be published as single storybook to any cloud base storybook hosting service.
+
+### <ins>Build</ins>
+
+- Run Specific project
+
+```bash
+npx nx run {{projectName}}:build
+```
+
+to build specific project.
+
+- Run all projects
+
+```bash
+npx nx run-many --target=build --all
+```
+
+to build all projects.
+
+### <ins>Test</ins>
+
+- Specific project
+
+```bash
+npx nx run {{projectName}}:test
+```
+
+to test specific project.
+
+- Run all projects
+
+```bash
+npx nx run-many --target=test --all
+```
+
+to test all projects.
+
+### <ins>Lint</ins>
+
+- lint Specific project
+
+```bash
+npx nx run {{projectName}}:lint
+```
+
+- lint all projects
+
+```bash
+npx nx run-many --target=lint --all
+```
+
+**_Note_**: \* The `--all` flag is optional. If you don't specify it, Nx will run the command for the project you are currently in.
+
+---
+
+## VS Code Extensions
+
+---
+
+It's highly recommended to install the following extensions in VS Code:
+
+- [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) - An extension for VS Code to help you use Nx.
+
+This extension provides a UI to:
+
+- Run commands
+- Generate apps and libs
+- Migrate to the latest version of Nx
+- View affected apps and libs
+- View dep-graph
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint JavaScript into VS Code.
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - VS Code package to format your JavaScript / TypeScript / CSS using Prettier.
+
+## Folder structure
+
+---
+
+```
+├── packages
+│   ├── core
+│   │   ├── src
+│   │   │   ├── lib
+│   │   │   │   ├── atoms
+│   │   │   │   │   ├── {{atomGroup}}
+│   │   │   │   │   │   ├── {{atomName}}.tsx
+│   │   │   │   │   │   ├── {{atomName}}.test.tsx
+│   │   │   │   │   │   ├── {{atomName}}.stories.tsx
+│   │   │   │   │   │   ├── {{atomName}}.styles.ts
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── molecules
+│   │   │   │   │   ├── {{moleculeGroup}}
+│   │   │   │   │   │   ├── {{moleculeName}}.tsx
+│   │   │   │   │   │   ├── {{moleculeName}}.test.tsx
+│   │   │   │   │   │   ├── {{moleculeName}}.stories.tsx
+│   │   │   │   │   │   ├── {{moleculeName}}.styles.ts
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   └── index.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── index.ts
+│   ├── organisms
+│   │   ├── src
+│   │   │   ├── lib
+│   │   │   │   ├── organisms
+│   │   │   │   │   ├── {{organismGroup}}
+│   │   │   │   │   │   ├── {{organismName}}.tsx
+│   │   │   │   │   │   ├── {{organismName}}.test.tsx
+│   │   │   │   │   │   ├── {{organismName}}.stories.tsx
+│   │   │   │   │   │   ├── {{organismName}}.styles.ts
+│   │   │   │   │   │   └── index.ts
+│   │   │   │   │   └── index.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── index.ts
+
+```
+
+## Development Work flow (Recommended)
+
+---
+
+### <ins>Checkout to a new branch</ins>
+
+You have to use one of the following prefixes for your branch name:
+
+- **_feat_** for new features
+- **_fix_** for bug fixes
+- **_docs_** for documentation changes
+- **_style_** for formatting, missing semi colons, etc; no code change
+- **_refactor_** for refactoring production code
+- **_test_** for adding missing tests, refactoring tests; no production code change
+- **_chore_** for updating build tasks, package manager configs, etc; no production code change
+- **_revert_** for reverting changes
+
+Example:
+
+```bash
+git checkout -b feat/{{componentName}}
+```
+
+### <ins>Create new component using the generators</ins>
+
+**_Examples:_**
+
+```bash
+npx nx run core:generate-atom --args="--name={{atomName}} --group={{atomGroup}}"
+```
+
+**_or_**
+
+```bash
+npx nx run core:generate-molecule --args="--name={{moleculeName}} --group={{moleculeGroup}}"
+```
+
+**_or_**
+
+```bash
+npx nx run organisms:generate-component --args="--name={{organismName}} --group={{organismGroup}}"
+```
+
+**_Note_**: \* The `--group` flag is important to group the components in the same folder. to prevent the folder structure from getting messy.
+
+### <ins>Commit your changes</ins>
+
+```bash
+git add .
+git commit -m "{{commitMessage}}"
+```
+
+**\*_Note_**: \* The `{{commitMessage}}` should follow the conventional commit message format. [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)\*
+
+if you are unsure about the commit message format, you can use the following command to generate the commit message:
+
+```bash
+npx commitizen
+```
+
+or
+
+```bash
+npx cz
+```
+
+This code base is commitzen friendly. Read more about commitzen [here](https://commitizen-tools.github.io/commitizen/)
+
+by running npx cz, you will be prompted to enter the commit message in the following format:
+
+```bash
+{{type}}({{scope}}): {{subject}}
+```
+
+### <ins>Push your changes</ins>
+
+```bash
+git push origin {{branchName}}
+```
+
+**\*_Note_**: \* The `{{branchName}}` should follow the naming convention mentioned above.\* you have to know also that the releasing scripts will use by default `main`, `beta` and `alpha` as the release branches. so these branches should always be clean and have the good state, pushing directly to them will lead to show an error message.
+
+### <ins>Create a pull request:</ins>
+
+Go to github and create a pull request from your branch to the `beta` branch.
+
+When you create a pull request, the CI will run the following checks:
+
+- Linting
+- Unit tests
+- Build
+- Chromatic (visual regression tests)
+
+You can block the merge button to lock the merg button until all the checks are passed.
+
+## Regression tests
+
+---
+
+This code base is completely configured to use chromatic visual regression tests. since we are trying to build a design language system, we need to make sure to involve designers and management in the regression tests
+
+Read more about chromatic [here](https://www.chromatic.com/)
+
+in order to use chromatic in it's best way, we need to enable the CI, UI test and the UI review and install github app. in chromatic dashboard
+
+in order to let the workflow works, you need to add the chromatic project token to the github repo secrets.
+
+- Go to the github repo settings
+- Go to the secrets tab
+- Add a new secret with the name `CHROMATIC_PROJECT_TOKEN` and the value should be the app code you can find in the chromatic dashboard
+
+## Github Actions
+
+---
+
+This code base is using github actions to run the CI. you can find the workflow file in the `.github/workflows` folder.
+
+initially we have two workflows:
+
+- Test workflow
+  To run the linting, unit tests, and build, and this will run on every pull request to ensure that no branch will be merged if the tests and the build are failing
+
+- Chromatic workflow
+  This Workflow will run on every pull request, and on every push on `beta`, `alpha`, and `main` branches. this workflow will run the chromatic publish command to publish the storybook to chromatic and run the visual regression tests.
+
+any one of the above workflows will fail, the pull request will be blocked from merging. (if you protect the branches on your cloud git provider)
+
+## Releasing
+
+---
+
+This code base is using the [semantic-release-plus](https://semantic-release-plus.gitbook.io/semantic-release-plus/)
+
+semantic release will automatically release the package based on the commit messages. that's why it's important to follow the conventional commit message format. and it will create the changelog and bump the version based.
+
+#### Merge to one of the releasing branches
+
+- `main` for production release
+- `beta` for beta release
+- `alpha` for alpha release
+
+#### Run the release script
+
+```bash
+npx nx run {{projectName}}:publish
+```
+
+This will run build, test, lint, and publish the package to the npm registry.
+
+**\*_Note_**: \* The `{{projectName}}` should be the name of the project you want to release. for example: `core` or `organisms`\*
+
+**\*Note\_**: \* for authontication, you have to create the `.npmrc` and set your registry and the token. in the project level\*
+
+Example
+
+```js
+@YOUR_USERNAME:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=YOUR_TOKEN
+```

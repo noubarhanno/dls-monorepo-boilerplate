@@ -6,6 +6,8 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "excludedFiles": [
+        // exclude everything inside dist
+        "dist/**/*",
         "*.config.*",
         ".storybook/**/*",
         "**/*.stories.tsx",
