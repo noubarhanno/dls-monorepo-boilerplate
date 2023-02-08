@@ -16,7 +16,7 @@
       "executor": "@nrwl/rollup:rollup",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/packages/organisms",
+        "outputPath": "packages/organisms/dist",
         "tsConfig": "packages/organisms/tsconfig.lib.json",
         "project": "packages/organisms/package.json",
         "entryFile": "packages/organisms/src/index.ts",
