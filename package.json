@@ -53,6 +53,7 @@
     "babel-loader": "8.1.0",
     "chromatic": "^6.15.0",
     "cypress": "^12.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "~8.15.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -88,5 +89,10 @@
     "tslib": "^2.3.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "dls-monorepo-boilerplate@0.0.0"
+  "_id": "dls-monorepo-boilerplate@0.0.0",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

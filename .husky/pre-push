@@ -4,8 +4,9 @@ echo -e "===\n>> Pre-push Hook: Checking branch name"
 
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PROTECTED_BRANCHES="^(main|beta)"
+IS_SEMANTIC_RELEASE=`git log -1 | grep "chore(release):"`
 
-if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ]]
+if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ]] && [ -z "$IS_SEMANTIC_RELEASE" ];
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and use PR." && exit 1
 fi
