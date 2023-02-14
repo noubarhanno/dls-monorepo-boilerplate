@@ -1,42 +1,42 @@
-# # .github/workflows/chromatic.yml
+# .github/workflows/chromatic.yml
 
-# # Workflow name
-# name: 'Chromatic Publish'
+# Workflow name
+name: 'Chromatic Publish'
 
-# # Event for the workflow
-# on:
-#   # 👇 Run the workflow on push events to the master branch
-#   push:
-#     branches:
-#       - main
-#       - beta
-#       - alpha
-#   # 👇 Run the workflow on all pull request events
-#   pull_request:
-#     branches:
-#       - '**'
+# Event for the workflow
+on:
+  # 👇 Run the workflow on push events to the master branch
+  push:
+    branches:
+      - main
+      - beta
+      - alpha
+  # 👇 Run the workflow on all pull request events
+  pull_request:
+    branches:
+      - '**'
 
-# # List of jobs
-# jobs:
-#   chromatic-deployment:
-#     # Operating System
-#     runs-on: ubuntu-latest
-#     # Job steps
-#     steps:
-#       - uses: actions/checkout@v1
-#       - name: Install dependencies
-#         # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
-#         run: npm install
-#         # 👇 Adds Chromatic as a step in the workflow
-#         # run only if there is affected changes
-#       - name: Publish to Chromatic
-#         # if the event is a pull request or push to main
-#         if: github.event_name == 'pull_request' || github.event_name == 'push' && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/alpha'
-#         uses: chromaui/action@v1
-#         # Chromatic GitHub Action options
-#         with:
-#           # 👇 Add comment to test that when no changes on the ui this trigger will not work
-#           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
-#           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-#           # 👇 Only run if there are changes to the components
-#           onlyChanged: true
+# List of jobs
+jobs:
+  chromatic-deployment:
+    # Operating System
+    runs-on: ubuntu-latest
+    # Job steps
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependencies
+        # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
+        run: npm install
+        # 👇 Adds Chromatic as a step in the workflow
+        # run only if there is affected changes
+      - name: Publish to Chromatic
+        # if the event is a pull request or push to main
+        if: github.event_name == 'pull_request' || github.event_name == 'push' && github.ref == 'refs/heads/main' || github.ref == 'refs/heads/beta' || github.ref == 'refs/heads/alpha'
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          # 👇 Add comment to test that when no changes on the ui this trigger will not work
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          # 👇 Only run if there are changes to the components
+          onlyChanged: true
