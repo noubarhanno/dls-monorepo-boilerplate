@@ -7,9 +7,10 @@ export interface ButtonProps {
 }
 
 const StyledButton = styled.button`
-  color: red;
+  color: green;
   padding: 6px;
   border: 2px solid green;
+  background-color: blue;
 `;
 
 export function Button({ onClick }: ButtonProps): JSX.Element {
