@@ -12,6 +12,8 @@ This workspace designed to handle the kickoff of building new Design language sy
 
 clone the repo and run `npm install` to install all the dependencies. and prepare your git hooks
 
+make sure to have Node version 16.\* installed.
+
 ## Understand this workspace
 
 ---
@@ -27,6 +29,14 @@ This boilerplate monorepo contains initially the following projects:
 - **core**: The core project contains the main logic of the design system. It contains the atoms, molecules and it include one simple component as an example
 
 - **organisms**: The organisms project contains the organisms components and it include one simple component as an example
+
+## Branches
+
+---
+
+- **main**: The main branch contains the latest stable version of the boilerplate with the support of emotion.
+- **emotion**: The emotion branch contains the latest stable version of the boilerplate with the support of emotion.
+- **tailwind**: The tailwind branch contains the latest stable version of the boilerplate with the support of tailwind.
 
 ## Generators Guide
 
